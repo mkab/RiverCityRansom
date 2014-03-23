@@ -1,5 +1,11 @@
 package fr.upmc.rivercityransom.errors;
 
+/**
+ * Super class that takes care of errors in the contract
+ * 
+ * @authors Mohammad Kabir Abdulsalam, Pape Malal Diagne
+ * @version 1.0
+ */
 public class ContractError extends Error {
 
   /**

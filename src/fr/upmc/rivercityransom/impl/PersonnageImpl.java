@@ -4,9 +4,9 @@ import fr.upmc.rivercityransom.services.ItemService;
 import fr.upmc.rivercityransom.services.PersonnageService;
 
 /**
- * This class implements to functionalities of PersonnageService
+ * This class implements the functionalities of PersonnageService
  * 
- * @author Mohammad Kabir Abdulsalam, Pape Malal Diagne
+ * @authors Mohammad Kabir Abdulsalam, Pape Malal Diagne
  * @version 1.0
  */
 public class PersonnageImpl implements PersonnageService {

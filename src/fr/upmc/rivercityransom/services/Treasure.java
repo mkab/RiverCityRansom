@@ -4,7 +4,7 @@ package fr.upmc.rivercityransom.services;
  * This enum contains the possible type of items a character can use in a game to fight and other
  * hidden treasures that may increase the money or health points of the character
  * 
- * @author mkab
+ * @authors Mohammad Kabir Abdulsalam, Pape Malal Diagne
  * @version 1.0
  */
 public enum Treasure {

@@ -1,10 +1,17 @@
 package fr.upmc.rivercityransom.contracts;
 
 import fr.upmc.rivercityransom.decorators.PersonnageDecorator;
+import fr.upmc.rivercityransom.errors.InvariantError;
 import fr.upmc.rivercityransom.errors.PostconditionError;
 import fr.upmc.rivercityransom.errors.PreconditionError;
 import fr.upmc.rivercityransom.services.ItemService;
 import fr.upmc.rivercityransom.services.PersonnageService;
+
+/**
+ * 
+ * @author Mohammad Kabir Abdulsalam, Pape Malal Diagne
+ * @version 1.0
+ */
 
 public class PersonnageContract extends PersonnageDecorator {
 
@@ -41,6 +48,10 @@ public class PersonnageContract extends PersonnageDecorator {
     // pre: force > 0
     if (!(force > 0))
       throw new PreconditionError("Character's force is not positive");
+
+    // pre: force < health_points
+    if (!(force < health_points))
+      throw new PreconditionError("Force is greater than health_points");
 
     // pre: health_points > 0
     if (!(health_points > 0))
@@ -141,7 +152,7 @@ public class PersonnageContract extends PersonnageDecorator {
     // run
     super.depositMoney(amount);
 
-    // post: getMoneyBalance() = getMoneyBalance()@pre + amount
+    // post: getMoneyBalance() == getMoneyBalance()@pre + amount
     if (!(getMoneyBalance() == (money + amount)))
       throw new PostconditionError(
           "At depositMoney(): Character's money balance not correctly updated after deposit");
@@ -164,7 +175,7 @@ public class PersonnageContract extends PersonnageDecorator {
     // run
     super.withdrawMoney(amount);
 
-    // post: getMoneyBalance() = getMoneyBalance()@pre - amount
+    // post: getMoneyBalance() == getMoneyBalance()@pre - amount
     if (!(getMoneyBalance() == (money - amount)))
       throw new PostconditionError(
           "At withdrawMoney(): Character's money balance not correctly updated after withdrawal");
@@ -172,18 +183,18 @@ public class PersonnageContract extends PersonnageDecorator {
 
   @Override
   public void pickUpItem(ItemService item) {
-    // pre: isEquipped() = false
+    // pre: isEquipped() == false
     if (isEquipped())
       throw new PreconditionError("Character should not be equipped to pick up an item");
 
     // run
     super.pickUpItem(item);
 
-    // post: isEquiped() = true
+    // post: isEquiped() == true
     if (!isEquipped())
       throw new PostconditionError("isEquipped should be true since character has equipped an item");
 
-    // post: itemEquipped() = item
+    // post: itemEquipped() == item
     if (!(itemEquipped().equals(item)))
       throw new PostconditionError(
           "Character's equipped item is different from the item given in parameter");
@@ -191,7 +202,7 @@ public class PersonnageContract extends PersonnageDecorator {
     // getForce()@pre
     int force = getForce();
 
-    // post: if Item::isReusable(item) then force() = force() + Item::value(item)
+    // post: if Item::isReusable(item) then force() == force() + Item::value(item)
     if (item.isReusable()) {
       if (!(getForce() == (force + item.value()))) {
         throw new PostconditionError(
@@ -202,7 +213,7 @@ public class PersonnageContract extends PersonnageDecorator {
     // getMoneyBalance()@pre
     int money = getMoneyBalance();
 
-    // post: if Item::isSellable(item) then moneyBalance() = moneyBalance() + Item::value(item)
+    // post: if Item::isSellable(item) then moneyBalance() == moneyBalance() + Item::value(item)
     if (item.isSellable()) {
       if (!(getMoneyBalance() == (money + item.value()))) {
         throw new PostconditionError(
@@ -214,26 +225,26 @@ public class PersonnageContract extends PersonnageDecorator {
 
   @Override
   public void throwItem() {
-    // pre: isEquipped() = true
+    // pre: isEquipped() == true
     if (!isEquipped())
       throw new PreconditionError("Character be equipped to throw an item");
 
     // run
     super.throwItem();
 
-    // post: isEquiped() = false
+    // post: isEquiped() == false
     if (!isEquipped())
       throw new PostconditionError(
           "Character should not be equipped after throwing an item. isEquipped should be set to false");
 
-    // post: itemEquipped() = item - TO BE VERIFIED
+    // post: itemEquipped() == item - TO BE VERIFIED
     if (!(itemEquipped().equals(null)))
       throw new PostconditionError("Character's equipped item after throwing it should be null");
 
     // getForce()@pre
     int force = getForce();
 
-    // post: if Item::isReusable(item) then getForce() = getForce()@pre - Item::value(item)
+    // post: if Item::isReusable(item) then getForce() == getForce()@pre - Item::value(item)
     if (!(getForce() == (force + itemEquipped().value()))) {
       throw new PostconditionError(
           "Character's force not correctly updated (decreased) after throwing a reusable item");
@@ -242,7 +253,7 @@ public class PersonnageContract extends PersonnageDecorator {
     // getMoneyBalance()@pre
     int money = getMoneyBalance();
 
-    // post: getMoneyBalance() = getMoneyBalance()@pre - no change in moneyBalance
+    // post: getMoneyBalance() == getMoneyBalance()@pre - no change in moneyBalance
     if (!(getMoneyBalance() == money))
       throw new PostconditionError(
           "Character's money balance should not change after throwing a reusable item");

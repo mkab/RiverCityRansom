@@ -1,16 +1,21 @@
 package fr.upmc.rivercityransom.services;
 
+/**
+ * 
+ * @authors Mohammad Kabir Abdulsalam, Pape Malal Diagne
+ * @version 1.0
+ */
 public interface TerrainService {
 
-  public void length();
+  public void getLength();
 
-  public void breadth();
+  public void getBreadth();
 
-  public void depth();
+  public void getDepth();
 
-  // \pre: 1 < length < length()
-  // \pre: 1 < breadth < breadth()
-  // \pre: 1 < depth < depth()
+  // \pre: 1 < length < getLength()
+  // \pre: 1 < breadth < getBreadth()
+  // \pre: 1 < depth < getDepth()
   public BlockService getBlock(int length, int breadth, int depth);
 
   /* Invariants */
@@ -18,12 +23,15 @@ public interface TerrainService {
 
   /* Constructors */
 
-  /**
-   * pre: length > 1 pre: breadth > 1 pre: depth > 1 post: length() = length post: breadth() =
-   * breadth post: depth() = depth post: getBlock(length, breadth, depth) != NULL
-   */
+  // \pre: length > 1
+  // \pre: breadth > 1
+  // \pre: depth > 1
+  // \post: getLength() = length
+  // \post: getBreadth() = breadth
+  // \post: getDepth() = depth
+  // \post: getBlock(length, breadth, depth) != NULL
   public void init(int length, int breadth, int depth);
-  
-  public void editBlock(BlockService block);
 
+  // \pre: block is not null
+  public void editBlock(BlockService block);
 }
