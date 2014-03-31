@@ -2,7 +2,7 @@ package fr.upmc.rivercityransom.test;
 
 import fr.upmc.rivercityransom.contracts.ItemContract;
 import fr.upmc.rivercityransom.impl.Item;
-import fr.upmc.rivercityransom.services.Treasure;
+import fr.upmc.rivercityransom.utils.Treasure;
 
 public class ItemTest {
 

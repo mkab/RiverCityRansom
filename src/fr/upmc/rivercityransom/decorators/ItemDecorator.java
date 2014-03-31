@@ -1,7 +1,7 @@
 package fr.upmc.rivercityransom.decorators;
 
 import fr.upmc.rivercityransom.services.ItemService;
-import fr.upmc.rivercityransom.services.Treasure;
+import fr.upmc.rivercityransom.utils.Treasure;
 
 /**
  * The decorator class for ItemService

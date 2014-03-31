@@ -5,7 +5,7 @@ import fr.upmc.rivercityransom.contracts.PersonnageContract;
 import fr.upmc.rivercityransom.impl.Item;
 import fr.upmc.rivercityransom.impl.Personnage;
 import fr.upmc.rivercityransom.services.PersonnageService;
-import fr.upmc.rivercityransom.services.Treasure;
+import fr.upmc.rivercityransom.utils.Treasure;
 
 /**
  * Main class to test PersonnageContract

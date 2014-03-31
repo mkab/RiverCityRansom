@@ -1,5 +1,7 @@
 package fr.upmc.rivercityransom.services;
 
+import fr.upmc.rivercityransom.utils.Type;
+
 /**
  * 
  * @authors Mohammad Kabir Abdulsalam, Pape Malal Diagne

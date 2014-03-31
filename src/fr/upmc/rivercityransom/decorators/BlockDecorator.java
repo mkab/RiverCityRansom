@@ -2,7 +2,7 @@ package fr.upmc.rivercityransom.decorators;
 
 import fr.upmc.rivercityransom.services.BlockService;
 import fr.upmc.rivercityransom.services.ItemService;
-import fr.upmc.rivercityransom.services.Type;
+import fr.upmc.rivercityransom.utils.Type;
 
 /**
  * The decorator class for BlockService

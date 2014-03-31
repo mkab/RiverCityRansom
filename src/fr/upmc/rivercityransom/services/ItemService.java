@@ -1,6 +1,7 @@
 package fr.upmc.rivercityransom.services;
 
 import fr.upmc.rivercityransom.utils.Carriable;
+import fr.upmc.rivercityransom.utils.Treasure;
 
 /**
  * Interface describing the possible objects that can be found in the game

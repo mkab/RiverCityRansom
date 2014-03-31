@@ -1,7 +1,7 @@
 package fr.upmc.rivercityransom.impl;
 
 import fr.upmc.rivercityransom.services.ItemService;
-import fr.upmc.rivercityransom.services.Treasure;
+import fr.upmc.rivercityransom.utils.Treasure;
 
 public class Item implements ItemService {
 

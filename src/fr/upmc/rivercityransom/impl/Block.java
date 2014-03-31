@@ -2,7 +2,7 @@ package fr.upmc.rivercityransom.impl;
 
 import fr.upmc.rivercityransom.services.BlockService;
 import fr.upmc.rivercityransom.services.ItemService;
-import fr.upmc.rivercityransom.services.Type;
+import fr.upmc.rivercityransom.utils.Type;
 
 /**
  * This class implements the functionalities of BlockService

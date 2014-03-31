@@ -3,7 +3,7 @@ package fr.upmc.rivercityransom.contracts;
 import fr.upmc.rivercityransom.decorators.ItemDecorator;
 import fr.upmc.rivercityransom.errors.PreconditionError;
 import fr.upmc.rivercityransom.services.ItemService;
-import fr.upmc.rivercityransom.services.Treasure;
+import fr.upmc.rivercityransom.utils.Treasure;
 
 public class ItemContract extends ItemDecorator {
 
