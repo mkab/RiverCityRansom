@@ -13,6 +13,11 @@ public class ContractError extends Error {
    */
   private static final long serialVersionUID = -2250524238697891370L;
 
+  /**
+   * Constructs an ContractError with the specified detail message.
+   * 
+   * @param message - the detail message.
+   */
   public ContractError(String message) {
     super(message);
   }

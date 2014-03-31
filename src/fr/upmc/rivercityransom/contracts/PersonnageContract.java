@@ -4,8 +4,8 @@ import fr.upmc.rivercityransom.decorators.PersonnageDecorator;
 import fr.upmc.rivercityransom.errors.InvariantError;
 import fr.upmc.rivercityransom.errors.PostconditionError;
 import fr.upmc.rivercityransom.errors.PreconditionError;
-import fr.upmc.rivercityransom.services.ItemService;
 import fr.upmc.rivercityransom.services.PersonnageService;
+import fr.upmc.rivercityransom.utils.Carriable;
 
 /**
  * 
@@ -182,7 +182,9 @@ public class PersonnageContract extends PersonnageDecorator {
   }
 
   @Override
-  public void pickUpItem(ItemService item) {
+  public void pickUpItem(Carriable item) {
+    // getForce()@pre
+    int force = getForce();
     // pre: isEquipped() == false
     if (isEquipped())
       throw new PreconditionError("Character should not be equipped to pick up an item");
@@ -198,9 +200,6 @@ public class PersonnageContract extends PersonnageDecorator {
     if (!(itemEquipped().equals(item)))
       throw new PostconditionError(
           "Character's equipped item is different from the item given in parameter");
-
-    // getForce()@pre
-    int force = getForce();
 
     // post: if Item::isReusable(item) then force() == force() + Item::value(item)
     if (item.isReusable()) {
@@ -238,7 +237,7 @@ public class PersonnageContract extends PersonnageDecorator {
           "Character should not be equipped after throwing an item. isEquipped should be set to false");
 
     // post: itemEquipped() == item - TO BE VERIFIED
-    if (!(itemEquipped().equals(null)))
+    if (!(itemEquipped() == null))
       throw new PostconditionError("Character's equipped item after throwing it should be null");
 
     // getForce()@pre
@@ -257,6 +256,12 @@ public class PersonnageContract extends PersonnageDecorator {
     if (!(getMoneyBalance() == money))
       throw new PostconditionError(
           "Character's money balance should not change after throwing a reusable item");
+
+  }
+
+  @Override
+  public void move(int x, int y, int z) {
+    // TODO Auto-generated method stub
 
   }
 

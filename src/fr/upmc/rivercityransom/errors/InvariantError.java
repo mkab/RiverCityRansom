@@ -14,6 +14,11 @@ public class InvariantError extends ContractError {
    */
   private static final long serialVersionUID = -963796054558283362L;
 
+  /**
+   * Constructs an InvariantError with the specified detail message.
+   * 
+   * @param message - the detail message.
+   */
   public InvariantError(String message) {
     super("Invariant failed: " + message);
   }

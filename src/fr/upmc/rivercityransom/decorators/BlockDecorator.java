@@ -24,7 +24,7 @@ public class BlockDecorator implements BlockService {
   }
 
   /**
-   * Returns the type of the block : EMPTY, PIT
+   * {@inheritDoc}
    */
   @Override
   public Type getType() {
