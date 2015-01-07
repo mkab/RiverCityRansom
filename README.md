@@ -1,5 +1,5 @@
 # RiverCityRansom
-A project in the software engineering course, Design-by-contract programming, at University of Pierre Marie Curie
+A project in the software engineering course, Design-by-contract programming, at University of Pierre Marie Curie.
 
 Design the game River City Ransom using the principles design by contract. The game’s concept is as follows: 
 
@@ -20,16 +20,16 @@ Design the game River City Ransom using the principles design by contract. The g
 
 The aim of the project is to: 
 
-
-•	Provide a complete specification of the game model (for each character, item etc…) in the specification language discussed in class.
-
-•	Achieve from the specification a contract document. Create different user case scenarios with preconditions, post conditions and invariants.
-
-•	Implement the game model in Java while respecting the contract document previously created.
-
-•	Create a list of test objectives and implement these test using JUnit.
-
-•	Create two complete versions of the game, a totally bugged game and a bug-free game. 
-
-•	Collect error messages during when executing the buggy version with the specified tests.
+  
+  •	Provide a complete specification of the game model (for each character, item etc…) in the specification language discussed in class.
+  
+  •	Achieve from the specification a contract document. Create different user case scenarios with preconditions, post conditions and invariants.
+  
+  •	Implement the game model in Java while respecting the contract document previously created.
+  
+  •	Create a list of test objectives and implement these test using JUnit.
+  
+  •	Create two complete versions of the game, a totally bugged game and a bug-free game. 
+  
+  •	Collect error messages during when executing the buggy version with the specified tests.
 
