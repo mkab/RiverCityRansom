@@ -36,16 +36,16 @@ public class MoteurJeuImpl implements MoteurJeuService {
 
   public RESULTAT resultatFinal() {
     if (combat.slick().estVaincu() && !(combat.ryan().estVaincu()))
-      return RESULTAT.RYANGAGNANT;
+      return RESULTAT.RYAN_WINS_YOU_WIN;
     if (combat.slick().estVaincu() && combat.ryan().estVaincu())
-      return RESULTAT.ALEXGAGNANT;
+      return RESULTAT.ALEX_WINS_YOU_WIN;
     if (combat.alex().estVaincu() && combat.ryan().estVaincu())
-      return RESULTAT.SLICKGAGNANT;
+      return RESULTAT.SLICK_WINS_YOU_LOSE;
     if (combat.alex().estVaincu() && combat.ryan().estVaincu() && combat.slick().estVaincu())
-      return RESULTAT.PARTIENULLE;
+      return RESULTAT.PARTIENULLE_DRAW_GAME;
     if ((!combat.alex().estVaincu() || !combat.ryan().estVaincu()) && !combat.slick().estVaincu()
         && pasJeuCourant == maxPasJeu)
-      return RESULTAT.PARTIENULLE;
+      return RESULTAT.PARTIENULLE_DRAW_GAME;
 
     return RESULTAT.CONTINUE;
   }

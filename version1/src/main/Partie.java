@@ -12,7 +12,7 @@ public class Partie extends Thread {
   private RESULTAT res;
 
   public Partie(MoteurJeuService jeu, Main fenetre) {
-    this.jeu = jeu;
+    this.setJeu(jeu);
     this.fenetre = fenetre;
     // setDaemon(true);
   }
@@ -31,9 +31,17 @@ public class Partie extends Thread {
         e.printStackTrace();
       }
     } while (!fenetre.getMoteur().estFini());
-    JOptionPane jop1 = new JOptionPane();
+    // JOptionPane jop1 = new JOptionPane();
     res = fenetre.getMoteur().resultatFinal();
-    jop1.showMessageDialog(null, res.toString(), "Resultat de la partie",
+    JOptionPane.showMessageDialog(null, res.toString(), "Resultat de la partie",
         JOptionPane.INFORMATION_MESSAGE);
+  }
+
+  public MoteurJeuService getJeu() {
+    return jeu;
+  }
+
+  public void setJeu(MoteurJeuService jeu) {
+    this.jeu = jeu;
   }
 }

@@ -39,22 +39,22 @@ public class MoteurJeuContrat extends MoteurJeuDecorator {
     // && ! PersonnageService:: estVaincu(GestionCombat::slick(combat(M))
     // && pasJeuCourant()=maxPasJeu()
 
-    if (resultatFinal() == RESULTAT.RYANGAGNANT) {
+    if (resultatFinal() == RESULTAT.RYAN_WINS_YOU_WIN) {
       if (!combat().slick().estVaincu()) {
         throw new InvariantError("ryan devrait etre le gagnant maintenant");
       }
     }
-    if (resultatFinal() == RESULTAT.ALEXGAGNANT) {
+    if (resultatFinal() == RESULTAT.ALEX_WINS_YOU_WIN) {
       if (!(combat().slick().estVaincu() && (combat().ryan().estVaincu()))) {
         throw new InvariantError("alex devrait etre le gagnant maintenant");
       }
     }
-    if (resultatFinal() == RESULTAT.SLICKGAGNANT) {
+    if (resultatFinal() == RESULTAT.SLICK_WINS_YOU_LOSE) {
       if (!(combat().alex().estVaincu() && (combat().ryan().estVaincu()))) {
         throw new InvariantError("slick devrait etre le gagnant maintenant");
       }
     }
-    if (resultatFinal() == RESULTAT.PARTIENULLE) {
+    if (resultatFinal() == RESULTAT.PARTIENULLE_DRAW_GAME) {
       if (!((combat().alex().estVaincu() && combat().ryan().estVaincu() && combat().slick()
           .estVaincu()) // TOUS SONTVAINCUS
       || ((!combat().alex().estVaincu() && !combat().ryan().estVaincu() && !combat().slick()
@@ -88,19 +88,19 @@ public class MoteurJeuContrat extends MoteurJeuDecorator {
     // !combat.ryan().estVaincu() && !combat.slick().estVaincu() && pasJeuCourant==maxPasJeu)
     // || resultatFinal = RESULTAT.CONTINUE;
 
-    if (!((resultat == RESULTAT.RYANGAGNANT && (combat().slick().estVaincu() && !(combat().ryan()
+    if (!((resultat == RESULTAT.RYAN_WINS_YOU_WIN && (combat().slick().estVaincu() && !(combat().ryan()
         .estVaincu())))
-        || (resultat == RESULTAT.ALEXGAGNANT && (combat().slick().estVaincu() && combat().ryan()
+        || (resultat == RESULTAT.ALEX_WINS_YOU_WIN && (combat().slick().estVaincu() && combat().ryan()
             .estVaincu()))
-        || (resultat == RESULTAT.SLICKGAGNANT && (combat().alex().estVaincu() && combat().ryan()
+        || (resultat == RESULTAT.SLICK_WINS_YOU_LOSE && (combat().alex().estVaincu() && combat().ryan()
             .estVaincu()))
-        || (resultat == RESULTAT.PARTIENULLE && (combat().alex().estVaincu()
+        || (resultat == RESULTAT.PARTIENULLE_DRAW_GAME && (combat().alex().estVaincu()
             && combat().ryan().estVaincu() && combat().slick().estVaincu()))
-        || (resultat == RESULTAT.PARTIENULLE && (!combat().alex().estVaincu()
+        || (resultat == RESULTAT.PARTIENULLE_DRAW_GAME && (!combat().alex().estVaincu()
             && !combat().ryan().estVaincu() && !combat().slick().estVaincu() && pasJeuCourant() == maxPasJeu()))
-        || (resultat == RESULTAT.PARTIENULLE && (combat().alex().estVaincu()
+        || (resultat == RESULTAT.PARTIENULLE_DRAW_GAME && (combat().alex().estVaincu()
             && !combat().ryan().estVaincu() && !combat().slick().estVaincu() && pasJeuCourant() == maxPasJeu()))
-        || (resultat == RESULTAT.PARTIENULLE && (!combat().alex().estVaincu()
+        || (resultat == RESULTAT.PARTIENULLE_DRAW_GAME && (!combat().alex().estVaincu()
             && combat().ryan().estVaincu() && !combat().slick().estVaincu() && pasJeuCourant() == maxPasJeu())) || (resultat == RESULTAT.CONTINUE))) {
       throw new PostconditionError("Le resultat du pas de jeu est incorrect");
     }

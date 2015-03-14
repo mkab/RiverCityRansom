@@ -59,6 +59,7 @@ public class Main extends JFrame {
     MiseEnPlacePanel();
     pack();
     setResizable(false);
+    setLocationRelativeTo(null);
     setVisible(true);
     AddEcouteur();
     new Partie(getMoteur(), this).start();
@@ -97,7 +98,7 @@ public class Main extends JFrame {
         KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "HautAlex");
     getRootPane().getActionMap().put("HautAlex", new AbstractAction() {
       public void actionPerformed(ActionEvent arg0) {
-        cA = COMMANDE.HAUT;;
+        cA = COMMANDE.HAUT;
       }
     });
 
@@ -105,7 +106,7 @@ public class Main extends JFrame {
         KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "BasAlex");
     getRootPane().getActionMap().put("BasAlex", new AbstractAction() {
       public void actionPerformed(ActionEvent arg0) {
-        cA = COMMANDE.BAS;;
+        cA = COMMANDE.BAS;
       }
     });
 
@@ -113,7 +114,7 @@ public class Main extends JFrame {
         KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "DroiteAlex");
     getRootPane().getActionMap().put("DroiteAlex", new AbstractAction() {
       public void actionPerformed(ActionEvent arg0) {
-        cA = COMMANDE.DROITE;;
+        cA = COMMANDE.DROITE;
       }
     });
 
@@ -121,7 +122,7 @@ public class Main extends JFrame {
         KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "GaucheAlex");
     getRootPane().getActionMap().put("GaucheAlex", new AbstractAction() {
       public void actionPerformed(ActionEvent arg0) {
-        cA = COMMANDE.GAUCHE;;
+        cA = COMMANDE.GAUCHE;
       }
     });
 
@@ -129,15 +130,15 @@ public class Main extends JFrame {
         KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0), "FrappeAlex");
     getRootPane().getActionMap().put("FrappeAlex", new AbstractAction() {
       public void actionPerformed(ActionEvent arg0) {
-        cA = COMMANDE.FRAPPER;;
+        cA = COMMANDE.FRAPPER;
       }
     });
 
     getRootPane().getInputMap(JRootPane.WHEN_IN_FOCUSED_WINDOW).put(
-        KeyStroke.getKeyStroke(KeyEvent.VK_M, 0), "RamasseAlex");
+        KeyStroke.getKeyStroke(KeyEvent.VK_R, 0), "RamasseAlex");
     getRootPane().getActionMap().put("RamasseAlex", new AbstractAction() {
       public void actionPerformed(ActionEvent arg0) {
-        cA = COMMANDE.RAMASSER;;
+        cA = COMMANDE.RAMASSER;
       }
     });
 
@@ -450,7 +451,7 @@ public class Main extends JFrame {
         terrain.getCase(XAlex, YAlex - 1).Dessine("AlexHaut");
       }
     }
-    bloc.Type a = bloc.Type.FOSSE;
+    // bloc.Type a = bloc.Type.FOSSE;
     for (int i = 0; i < moteur.combat().terrain().hauteur(); i++) {
       for (int j = 0; j < moteur.combat().terrain().largeur(); j++) {
         if (moteur.combat().terrain().getBloc(j, i).getType() == bloc.Type.FOSSE) {
